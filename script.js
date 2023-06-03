@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
     canvas.width = 1280;
-    canvas.height = 710;
+    canvas.height = 650;
     
 
 
@@ -16,16 +16,18 @@ window.addEventListener('load', () => {
             this.topMargin = 260;
             this.color = "#000000"
             this.x = this.width/2;
-            this.y = this.height/2 - 100;
+            this.y = this.height/2 - 50;
             this.count = 44;
             this.consonants = ['c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z'];
             this.vowels = ['a', 'e', 'i', 'o', 'u'];
             this.roundVowels = [];
             this.roundConsonants = [];
+            this.roundLetters = [];
             this.vowelX = 500;
             this.vowelY = 550;
             this.consonantX = 500;
             this.consonantY = 600;
+            this.points = 0;
         }
 
 
@@ -78,11 +80,16 @@ window.addEventListener('load', () => {
             }
 
 
+            
+            
             // Draw the round's vowels
 
             for (let j = 0; j < this.roundVowels.length; j++) {
+                context.fillStyle = 'white';
+                context.fillRect(this.vowelX - 15, this.vowelY - 15, 30, 30);
+                context.fillStyle = 'black';
                 context.fillText(this.roundVowels[j], this.vowelX, this.vowelY);
-                this.vowelX += 20;
+                this.vowelX += 50;
                 
             }
             this.vowelX = 500;
@@ -90,11 +97,22 @@ window.addEventListener('load', () => {
             // Draw the round's consonants
 
             for (let k = 0; k < this.roundConsonants.length; k++) {
-
+                context.fillStyle = 'white';
+                context.fillRect(this.consonantX - 15, this.consonantY - 15, 30, 30)
+                context.fillStyle = 'black';
                 context.fillText(this.roundConsonants[k], this.consonantX, this.consonantY);
-                this.consonantX += 20;
+                this.consonantX += 50;
             }
             this.consonantX = 500;
+
+
+            // Draw reset button
+
+            context.fillStyle = 'white';
+            context.fillRect(this.width - 280, 95, 200, 50);
+            context.fillStyle = 'black';
+            context.fillText("Next Round", this.width - 180, 120);
+
  
         }
 
