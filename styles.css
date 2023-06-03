@@ -1,0 +1,28 @@
+body {
+    
+    /* background-color: deepskyblue; */
+    color: black;
+   
+
+}
+
+
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    
+    font-size: 2rem;
+}
+
+
+#game-display {
+
+    display: flex;
+    justify-content: center;
+
+}
+
