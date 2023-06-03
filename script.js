@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
 
         render(context) {
             context.clearRect(0, 0, this.width, this.height);
-            context.fillStyle = 'lightblue';
+            context.fillStyle = 'aqua';
             context.fillRect(0, 0, this.width, this.height);
 
             // Draw white circle
