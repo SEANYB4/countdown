@@ -314,9 +314,9 @@ fetch('merged.json')
 
             ctx.save()
             ctx.font = "12px Arial";
-            ctx.fillText(word, 90, 110);
+            ctx.fillText(word, 90, 110, 100);
             ctx.font = "10px Arial";
-            ctx.fillText(definition, 220, 130);
+            ctx.fillText(definition, 220, 130, 220);
             ctx.restore()
         }
 
