@@ -223,6 +223,8 @@ fetch('merged.json')
             this.count = 44;
             this.runningTotal += this.score;
             this.score = 0;
+            let entry = document.getElementById('textInput');
+            entry.value = '';
             roundHappening = false
             this.render(context);
         }
@@ -286,8 +288,8 @@ fetch('merged.json')
                 }
             } else {
                 let entry = document.getElementById('textInput');
-                entry.value = 'Not found'
-                console.log('not found');
+                entry.value = 'Not found';
+                
             }
             
             
