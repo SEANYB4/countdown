@@ -120,6 +120,19 @@ window.addEventListener('load', () => {
             context.strokeStyle = 'black';
             context.strokeRect(this.width - 280, 95, 200, 50);
 
+            // Draw the submit button
+
+            context.fillStyle = 'white';
+            context.fillRect(this.width - 280, 450, 200, 50);
+            context.fillStyle = 'black';
+            context.fillText("Submit", this.width - 180, 475);
+            context.strokeStyle = 'black';
+            context.strokeRect(this.width - 280, 450, 200, 50);
+
+            // Draw score board
+
+            context.fillStyle = 'black';
+            context.fillText("Score:", this.width - 400, 550)
  
         }
 
@@ -179,6 +192,17 @@ window.addEventListener('load', () => {
     const game = new Game(canvas);
     
 
+    // LISTENER FOR TEXT ENTRY
+
+    var input = document.getElementById("textInput");
+    input.addEventListener("input", () => {
+        var text = input.value;
+        console.log(text);
+    })
+
+
+    // ROUND BUTTON EVENT LISTENER
+
     canvas.addEventListener("click", (e) => {
 
         var rect = canvas.getBoundingClientRect();
@@ -186,17 +210,11 @@ window.addEventListener('load', () => {
         var y = e.clientY - rect.top;
 
         if (x >= 1000 && x <= 1200 && y >= 95 && y >- 145 && !roundHappening) {
-            
             game.round(ctx);
-            console.log("clicked");
-            
         }
-    })
+    });
     
     game.render(ctx);
 
 
-    
- 
-    
-})
+});

@@ -32,4 +32,15 @@ h1 {
 #canvas1 {
 
     border-radius: 10px;
+    position: relative;
+}
+
+#textInput {
+
+    position: absolute;
+    left: 1090px;
+    top: 500px;
+    z-index: 1;
+    width: 200px;
+    font-size: 2rem;
 }
