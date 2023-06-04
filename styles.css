@@ -38,12 +38,23 @@ h1 {
 #textInput {
 
     position: absolute;
-    left: 1320px;
+    left: 1090px;
     top: 500px;
     z-index: 1;
     width: 200px;
     font-size: 2rem;
 }
+
+
+/* #vowelInput {
+
+
+}
+
+#consonantInput {
+
+
+} */
 
 
 #title {

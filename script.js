@@ -307,12 +307,16 @@ fetch('merged.json')
 
             const randomIndex = Math.floor(Math.random() * keys.length);
             let word = keys[randomIndex];
-            let definition = dictionary[word].MEANINGS;
+            let definition
+            if (dictionary[word].MEANINGS != undefined) {
+                definition = dictionary[word].MEANINGS[0];
+            } 
+
             ctx.save()
             ctx.font = "12px Arial";
-            ctx.fillText(word, 110, 110);
+            ctx.fillText(word, 90, 110);
             ctx.font = "10px Arial";
-            ctx.fillText(definition, 200, 130, 200);
+            ctx.fillText(definition, 220, 130);
             ctx.restore()
         }
 
