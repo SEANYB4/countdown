@@ -38,9 +38,25 @@ h1 {
 #textInput {
 
     position: absolute;
-    left: 1090px;
+    left: 1320px;
     top: 500px;
     z-index: 1;
     width: 200px;
     font-size: 2rem;
 }
+
+
+#title {
+    display: flex;
+    height: 6rem;
+
+}
+
+
+.titleLetter {
+
+    background-color: blue;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
