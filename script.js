@@ -3,7 +3,8 @@ window.addEventListener('load', () => {
     const ctx = canvas.getContext('2d');
     canvas.width = 1280;
     canvas.height = 650;
-    
+    var soundEffect = new Audio("clock.mp3");
+    roundHappening = false
 
 
     class Game {
@@ -41,6 +42,10 @@ window.addEventListener('load', () => {
             context.fillStyle = 'white';
             context.arc(this.x, this.y, 250, 0, 2 * Math.PI);
             context.fill();
+            context.strokeStyle = 'black';
+            context.beginPath();
+            context.arc(this.x, this.y, 250, 0, 2 * Math.PI);
+            context.stroke();
 
             // Draw black circle
             context.beginPath();
@@ -85,9 +90,9 @@ window.addEventListener('load', () => {
             // Draw the round's vowels
 
             for (let j = 0; j < this.roundVowels.length; j++) {
-                context.fillStyle = 'white';
+                context.fillStyle = 'blue';
                 context.fillRect(this.vowelX - 15, this.vowelY - 15, 30, 30);
-                context.fillStyle = 'black';
+                context.fillStyle = 'white';
                 context.fillText(this.roundVowels[j], this.vowelX, this.vowelY);
                 this.vowelX += 50;
                 
@@ -97,9 +102,9 @@ window.addEventListener('load', () => {
             // Draw the round's consonants
 
             for (let k = 0; k < this.roundConsonants.length; k++) {
-                context.fillStyle = 'white';
+                context.fillStyle = 'blue';
                 context.fillRect(this.consonantX - 15, this.consonantY - 15, 30, 30)
-                context.fillStyle = 'black';
+                context.fillStyle = 'white';
                 context.fillText(this.roundConsonants[k], this.consonantX, this.consonantY);
                 this.consonantX += 50;
             }
@@ -112,6 +117,8 @@ window.addEventListener('load', () => {
             context.fillRect(this.width - 280, 95, 200, 50);
             context.fillStyle = 'black';
             context.fillText("Next Round", this.width - 180, 120);
+            context.strokeStyle = 'black';
+            context.strokeRect(this.width - 280, 95, 200, 50);
 
  
         }
@@ -121,7 +128,10 @@ window.addEventListener('load', () => {
         }
 
         async round(context) {
+            this.roundConsonants = []
+            this.roundVowels = []
 
+            roundHappening = true
             
             let i = 0;
             while (i < 4) {
@@ -137,8 +147,8 @@ window.addEventListener('load', () => {
             }
 
             
-            
-
+            // SOUND
+            soundEffect.play();
 
             while (this.count < 75) {
                 this.render(context);
@@ -156,19 +166,34 @@ window.addEventListener('load', () => {
                 await this.sleep(1000);
 
             }
-            this.count = 0;
+            this.count = 44;
+            roundHappening = false
         }
 
       
         
     }
 
-
+    
 
     const game = new Game(canvas);
     
+
+    canvas.addEventListener("click", (e) => {
+
+        var rect = canvas.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+
+        if (x >= 1000 && x <= 1200 && y >= 95 && y >- 145 && !roundHappening) {
+            
+            game.round(ctx);
+            console.log("clicked");
+            
+        }
+    })
     
-    game.round(ctx);
+    game.render(ctx);
 
 
     

@@ -17,6 +17,8 @@ h1 {
     
     font-size: 3rem;
     font-family: 'Abril Fatface', cursive;
+    color: white;
+    
 }
 
 
@@ -27,3 +29,7 @@ h1 {
 
 }
 
+#canvas1 {
+
+    border-radius: 10px;
+}
